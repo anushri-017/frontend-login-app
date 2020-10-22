@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import  {getdata} from '../actions/index';
 
 const  mapStateToProps = state =>{
@@ -30,6 +31,8 @@ class Search extends Component{
                                 <th className="tr" >Username</th>
                                 <th className="tr">E-Mail</th>
                                 <th className="tr">Country</th>
+                                <th className ="tr">Date</th>
+                                <th className = "tr">View</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,6 +42,11 @@ class Search extends Component{
                                     <td className="tr">{users.username}</td>
                                     <td className="tr">{users.email}</td>
                                     <td className="tr">{users.country}</td>
+                                    <td className="tr">{users.signupDate}</td>
+                                    <td className="tr">
+                                    <button className = "btn btn-warning ml-2 py-1">
+                                    <Link to = '/status'>View</Link></button>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>

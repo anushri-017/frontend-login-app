@@ -1,8 +1,11 @@
 import { Container,Paper,Button} from '@material-ui/core';
+import TextFeild from '@material-ui/core/TextField';
 import PersonSharpIcon from '@material-ui/icons/PersonSharp';
 import PublicSharpIcon from '@material-ui/icons/PublicSharp';
 import VisibilitySharpIcon from '@material-ui/icons/VisibilitySharp';
 import MailSharpIcon from '@material-ui/icons/MailSharp';
+import InsertPhotoIcon from '@material-ui/icons/InsertPhoto';
+import Profilepic from './Profilepic';
 import {connect} from 'react-redux';
 import  {createData} from '../actions/index';
 import React, { Component } from 'react';
@@ -47,30 +50,34 @@ class Register extends Component{
             <Paper elevation = {9} >
             <h1 className ='text-white  bg-info'>Register Now</h1><br/>
             <label className="text-info font-weight-bold label ">
-            <PersonSharpIcon  fontSize = "large"/>UserName
-            <input className='input text-center form-control  font-weight-italic' 
+            <PersonSharpIcon  fontSize = "large"/>
+            <TextFeild className='input text-center form-group  font-weight-italic' 
             placeholder="UserName"  type='text'  value = {this.state.username}  
             onChange = {this.handelname} required /></label><br/>
             <label className="text-info font-weight-bold label"> 
-            <MailSharpIcon fontSize = "large"/>Email-Id
-             <input className='input text-center form-control font-weight-italic' 
+            <MailSharpIcon fontSize = "large"/>
+             <TextFeild className='input text-center form-group  font-weight-italic' 
             placeholder="Enter Your  email" type='text'  value = {this.state.email}  
             onChange = {this.handelmail} required/></label><br/>
             <label className="text-info font-weight-bold label">
-            <PublicSharpIcon fontSize = "large"/> Country
-             <input className='input text-center form-control font-weight-italic' 
+            <PublicSharpIcon fontSize = "large"/>
+             <TextFeild className='input text-center form-group font-weight-italic' 
             placeholder="Enter Your Country" type='text'  value = {this.state.country} 
              onChange = {this.handelcountry} required/></label><br/>
             <label className="text-info font-weight-bold label">
-            <VisibilitySharpIcon  fontSize = "large"/>Password
-            <input className='input text-center form-control font-weight-italic' 
+            <VisibilitySharpIcon  fontSize = "large"/>
+            <TextFeild className='input text-center form-group font-weight-italic' 
             placeholder="Password" type='text'  value = {this.state.password}  
             onChange = {this.handelpassword}  required/></label><br/>
             <label className="text-info font-weight-bold label">
-            <VisibilitySharpIcon  fontSize = "large"/> ConfirmPassword
-            <input className='input text-center form-control font-weight-italic' 
+            <VisibilitySharpIcon  fontSize = "large"/> 
+            <TextFeild className='input text-center form-group font-weight-italic' 
             placeholder=" Confirm-Password" type='text'  value = {this.state.cnfpassword}  
-            onChange = {this.handelcnfpassword} required/></label><br/><br/>
+            onChange = {this.handelcnfpassword} required/></label><br/>
+            <label className="text-info label"><InsertPhotoIcon fontSize="large"/>
+            Profile Picture
+            <Profilepic/></label>             
+            <br/><br/>
             <Button onClick = {this.handlesubmit} size="large" variant ="contained" color ="primary">Register</Button><br/><br/>
             <p>Already,have an account!! </p>
             <Button size = "large" variant = "contained" color = "inherit">

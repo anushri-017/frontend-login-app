@@ -31,9 +31,15 @@
   }
   
   .table{
-    border:2px solid black
+    border-width:2px solid black
   }
   .tr{
     border:1px solid black
   }
-  
+  .input{
+    margin:spacing(1);
+    width: '25ch',
+  }
+  .list{
+    text-align: center;
+  }
