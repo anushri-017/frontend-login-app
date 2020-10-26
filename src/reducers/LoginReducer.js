@@ -1,5 +1,5 @@
 
-import {CREATE_DATA,GET_DATA} from  '../contants/action-types';
+import {CREATE_DATA,GET_DATA,LOG_DATA} from  '../contants/action-types';
 
 const initialState ={
     users:[]
@@ -15,6 +15,11 @@ const  LoginReducer  = (state= initialState,action)=>{
                     ...state,
                     users:action.payload
                 }
+                case LOG_DATA:
+                    return{
+                        ...state,
+                        
+                    }
         default:
             return state;
     }

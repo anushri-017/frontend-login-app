@@ -1,14 +1,40 @@
 import  React, { Component } from 'react';
+import  {connect} from 'react-redux';
+import {loggedin} from "../actions/index";
 import {Link} from 'react-router-dom';
 import Container  from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
-import TextFeild from '@material-ui/core/TextField';
 import PersonSharpIcon from '@material-ui/icons/PersonSharp';
 import VisibilitySharpIcon from '@material-ui/icons/VisibilitySharp';
-import{Button} from '@material-ui/core'
+import{Button, TextField} from '@material-ui/core'
 
 class  LoginPage extends  Component{
-    render(){
+    constructor(){
+        super();
+                let logIn = false
+                const token = localStorage.getItem('token')
+                if (token) logIn  = true 
+         
+        this.state={
+            username:null,
+            password:null,
+           logIn 
+        }
+    }
+    handlename = (event) =>{
+        this.setState({username: event.target.value})
+    }
+    handlepassword = (event) =>{
+        this.setState({password: event.target.value})
+    }
+    onlogin  = event =>{
+     if(this.state.username ===""||this.state.password==="")
+    event.preventDefault();
+    console.log(this.state)
+    this.props.loggedin(this.state);
+    }
+
+    render(){ 
         return( 
             <>
             <div className =  "loginpage">  
@@ -18,17 +44,21 @@ class  LoginPage extends  Component{
             <h1 className ='text-white  bg-info'>Login to your Account</h1>
             <label className="text-info font-weight-bold label">
             <PersonSharpIcon  fontSize = "large"/>
-            <TextFeild className=' text-center form-group font-weight-italic' 
-            placeholder="Username"  
+            <TextField className=' text-center form-group font-weight-italic'  
+            onChange = {this.handlename}
+            variant ="outlined"
+            label ="Username"  
             type='text' required /></label>
             <br/>
             <label className="text-info font-weight-bold label ">
             <VisibilitySharpIcon fontSize ="large" />
-            <TextFeild className='input text-center form-group  font-weight-italic' 
-            placeholder="Password" 
-            type='text' required /></label>
+            <TextField  className='input text-center form-group  font-weight-italic' 
+            onChange = {this.handlepassword}
+            variant="outlined"
+             label ="Password" 
+            type='password' required /></label>
             <br/><br/>
-            <Button  size="large" variant ="contained" color ="primary">Login</Button>
+            <Button  size="large" variant ="contained"  onClick = {()=>{this.onlogin()}}  color ="primary">Login</Button>
             <br/><br/>
             <p>Sign-up to create account.....!!! </p>
             <Button size = "large" variant = "contained" color = "inherit">
@@ -46,5 +76,15 @@ class  LoginPage extends  Component{
     }
 }
 
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        loggedin:(data) => dispatch(loggedin(data))
+    }
+}
 
-export default  LoginPage;
+// const mapStateToProps = (state) =>{
+//     return{
+//         users:state.users
+//     }
+// }
+export default connect(null,mapDispatchToProps) (LoginPage);

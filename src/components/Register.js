@@ -4,8 +4,6 @@ import PersonSharpIcon from '@material-ui/icons/PersonSharp';
 import PublicSharpIcon from '@material-ui/icons/PublicSharp';
 import VisibilitySharpIcon from '@material-ui/icons/VisibilitySharp';
 import MailSharpIcon from '@material-ui/icons/MailSharp';
-import InsertPhotoIcon from '@material-ui/icons/InsertPhoto';
-import Profilepic from './Profilepic';
 import {connect} from 'react-redux';
 import  {createData} from '../actions/index';
 import React, { Component } from 'react';
@@ -52,32 +50,28 @@ class Register extends Component{
             <label className="text-info font-weight-bold label ">
             <PersonSharpIcon  fontSize = "large"/>
             <TextFeild className='input text-center form-group  font-weight-italic' 
-            placeholder="UserName"  type='text'  value = {this.state.username}  
+            label ="UserName"   variant="outlined"  type='text'  value = {this.state.username}  
             onChange = {this.handelname} required /></label><br/>
             <label className="text-info font-weight-bold label"> 
             <MailSharpIcon fontSize = "large"/>
              <TextFeild className='input text-center form-group  font-weight-italic' 
-            placeholder="Enter Your  email" type='text'  value = {this.state.email}  
+            label ="Enter Your  email"   variant="outlined" type='text'  value = {this.state.email}  
             onChange = {this.handelmail} required/></label><br/>
             <label className="text-info font-weight-bold label">
             <PublicSharpIcon fontSize = "large"/>
              <TextFeild className='input text-center form-group font-weight-italic' 
-            placeholder="Enter Your Country" type='text'  value = {this.state.country} 
+            label="Enter Your Country"  variant="outlined"  type='text'  value = {this.state.country} 
              onChange = {this.handelcountry} required/></label><br/>
             <label className="text-info font-weight-bold label">
             <VisibilitySharpIcon  fontSize = "large"/>
             <TextFeild className='input text-center form-group font-weight-italic' 
-            placeholder="Password" type='text'  value = {this.state.password}  
+            label="Password"  variant="outlined"  type='text'  value = {this.state.password}  
             onChange = {this.handelpassword}  required/></label><br/>
             <label className="text-info font-weight-bold label">
             <VisibilitySharpIcon  fontSize = "large"/> 
             <TextFeild className='input text-center form-group font-weight-italic' 
-            placeholder=" Confirm-Password" type='text'  value = {this.state.cnfpassword}  
-            onChange = {this.handelcnfpassword} required/></label><br/>
-            <label className="text-info label"><InsertPhotoIcon fontSize="large"/>
-            Profile Picture
-            <Profilepic/></label>             
-            <br/><br/>
+            label =" Confirm-Password"   variant="outlined" type='text'  value = {this.state.cnfpassword}  
+            onChange = {this.handelcnfpassword} required/></label><br/><br/>
             <Button onClick = {this.handlesubmit} size="large" variant ="contained" color ="primary">Register</Button><br/><br/>
             <p>Already,have an account!! </p>
             <Button size = "large" variant = "contained" color = "inherit">
@@ -89,13 +83,13 @@ class Register extends Component{
             </>
         )
     }
-}
+}  
+
 const mapDispatchToProps = (dispatch) => {
     return {
         createData: (data) => dispatch(createData(data))
     }
 }
-
 
 const mapStateToProps = (state) => {
     return {

@@ -9,7 +9,10 @@
   .loginpage{
     margin-top:2rem;
   }
-  
+  .profilepic{
+    text-align: center;
+    margin-left: 5rem;
+  }
    .label{
      font-size: 30px;
    }

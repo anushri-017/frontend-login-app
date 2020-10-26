@@ -1,6 +1,6 @@
 import React ,{Component}from 'react';
 import "../../node_modules/antd/dist/antd.css";
-import { Modal, Button } from 'antd';
+import { Modal, Button } from "antd";
 
  class Profilechanger extends Component{
  constructor(props){
@@ -9,8 +9,7 @@ import { Modal, Button } from 'antd';
         imagesArray :[
             props.pic1,
             props.pic2,
-            props.pic3,
-            props.pic4
+            props.pic3
         ]}
 }
     showModal = () => {
@@ -35,7 +34,7 @@ import { Modal, Button } from 'antd';
      render(){
          const imageMapper = this.state.imagesArray.map((image,index)=>{
              return(
-                 <img src = {image}
+                 <img src = {image} alt="profile"
                  onClick={() => this.props.handleImageChange(image)}/>
              )
          })
@@ -45,7 +44,7 @@ import { Modal, Button } from 'antd';
               Change Pic
             </Button>
             <Modal
-              title="Basic Modal"
+              title="Choose a picture"
               visible={this.state.visible}
               onOk={this.handleOk}
               onCancel={this.handleCancel}>
