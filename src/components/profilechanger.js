@@ -1,7 +1,8 @@
 import React ,{Component}from 'react';
 import "../../node_modules/antd/dist/antd.css";
 import { Modal, Button } from "antd";
-
+import FilesUpload from './uploadpic';
+  
  class Profilechanger extends Component{
  constructor(props){
     super(props);
@@ -50,6 +51,8 @@ import { Modal, Button } from "antd";
               onCancel={this.handleCancel}>
              {imageMapper}
             </Modal>
+            <br/>
+            <FilesUpload/>
           </>
          );
      }

@@ -3,8 +3,9 @@ import history from '../history';
 import {Route,Router,NavLink,Switch} from 'react-router-dom';
 import LoginPage from '../components/loginPage';
 import Search from '../components/Search';
-import  Status  from '../components/Status';
 import Register from '../components/Register';
+import PostLoginPage from "../components/PostLoginPage";
+import VeiwUserDetails from '../components/veiwUserDetails';
 
 function Navbar() {
   return (
@@ -25,7 +26,6 @@ const Navigation = () => (
       <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/">Register</NavLink></li>
       <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/login">Login</NavLink></li>
       <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/search">Search</NavLink></li>
-      <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/status">Status</NavLink></li>
     </ul>
   </nav>
 );
@@ -34,8 +34,9 @@ const Main = () => (
   <Switch>
     <Route exact path='/' component={Register} />
     <Route exact path='/login' component={LoginPage} />
+    <Route exact path = '/postLoginpage'  component = {PostLoginPage}/>
+    <Route exact path = '/viewuserdetails'  component = {VeiwUserDetails}/>
     <Route exact path='/search' component={Search} />
-    <Route exact path='/status' component={Status} />
   </Switch>
 )
 

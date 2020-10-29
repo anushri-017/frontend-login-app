@@ -1,24 +1,18 @@
 import  React, { Component } from 'react';
 import  {connect} from 'react-redux';
 import {loggedin} from "../actions/index";
-import {Link} from 'react-router-dom';
 import Container  from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import PersonSharpIcon from '@material-ui/icons/PersonSharp';
 import VisibilitySharpIcon from '@material-ui/icons/VisibilitySharp';
-import{Button, TextField} from '@material-ui/core'
+import{Button,TextField} from '@material-ui/core';
 
 class  LoginPage extends  Component{
     constructor(){
         super();
-                let logIn = false
-                const token = localStorage.getItem('token')
-                if (token) logIn  = true 
-         
         this.state={
             username:null,
-            password:null,
-           logIn 
+            password:null
         }
     }
     handlename = (event) =>{
@@ -56,16 +50,12 @@ class  LoginPage extends  Component{
             onChange = {this.handlepassword}
             variant="outlined"
              label ="Password" 
-            type='password' required /></label>
+            type='text' required /></label>
             <br/><br/>
-            <Button  size="large" variant ="contained"  onClick = {()=>{this.onlogin()}}  color ="primary">Login</Button>
+            <Button  size="large" variant ="contained"  onClick = {()=>{this.onlogin()}}  color ="primary" href="/postLoginpage">Login</Button>
             <br/><br/>
             <p>Sign-up to create account.....!!! </p>
-            <Button size = "large" variant = "contained" color = "inherit">
-            <Link to = '/'>
-            Sign-up
-            </Link>
-            </Button>
+            <Button size = "large" variant = "contained" color = "primary" href="/"> Sign-up </Button>
             <br/><br/><br/>
             </Paper>
             </form>
@@ -82,9 +72,9 @@ const mapDispatchToProps = (dispatch) =>{
     }
 }
 
-// const mapStateToProps = (state) =>{
-//     return{
-//         users:state.users
-//     }
-// }
-export default connect(null,mapDispatchToProps) (LoginPage);
+const mapStateToProps = (state) =>{
+    return{
+        veiwProfile:state.veiwProfile
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps) (LoginPage);

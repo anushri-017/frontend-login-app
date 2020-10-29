@@ -22,7 +22,8 @@ import  Pic3 from "../components/pics/pic3.png";
      render(){
          return(
              <div >
-             <Avatar size = {78} icon = {<PersonIcon/>}/>
+             <Avatar size = {143} icon = {<PersonIcon/>}/>
+             <br/><br/>
              <Profilechanger handleImageChange={this.handleImageChange}
              pic1={Pic1} pic2={Pic2}  pic3={Pic3} />
              </div>

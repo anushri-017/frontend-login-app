@@ -7,7 +7,6 @@ import MailSharpIcon from '@material-ui/icons/MailSharp';
 import {connect} from 'react-redux';
 import  {createData} from '../actions/index';
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 
 class Register extends Component{
     constructor(props) {
@@ -73,9 +72,8 @@ class Register extends Component{
             label =" Confirm-Password"   variant="outlined" type='text'  value = {this.state.cnfpassword}  
             onChange = {this.handelcnfpassword} required/></label><br/><br/>
             <Button onClick = {this.handlesubmit} size="large" variant ="contained" color ="primary">Register</Button><br/><br/>
-            <p>Already,have an account!! </p>
-            <Button size = "large" variant = "contained" color = "inherit">
-            <Link to = '/login'>Login</Link></Button><br/><br/><br/>
+            <p>Already,have an account!! <span role="img" aria-label="lock">🔒 </span> </p>
+            <Button size = "large" variant = "contained" color = "inherit" href = '/login'>Login</Button><br/><br/><br/>
             </Paper>
             </form>
             </Container>
