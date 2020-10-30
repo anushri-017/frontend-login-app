@@ -8,9 +8,9 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import logger from 'redux-logger';
 import {createStore,applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
-import   LoginReducer  from './reducers/LoginReducer';
+import  rootReducers from "./reducers/rootReducer";
 
-const store = createStore(LoginReducer,
+const store = createStore(rootReducers,
   composeWithDevTools(applyMiddleware(thunk,logger)));
 
 ReactDOM.render(

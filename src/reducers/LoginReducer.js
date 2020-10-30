@@ -1,20 +1,11 @@
 
-import {CREATE_DATA,GET_DATA,LOG_DATA,VIEW_PROFILE} from  '../contants/action-types';
+import {LOG_DATA,VIEW_PROFILE} from  '../contants/action-types';
 
 const initialState ={
-    users:[] ,veiwProfile:[]
+    veiwProfile:[]
 }
-const  LoginReducer  = (state= initialState,action)=>{
+const  loginReducer  = (state= initialState,action)=>{
     switch(action.type){
-        case CREATE_DATA:
-            return{
-                ...state
-            }
-            case GET_DATA:
-                return {
-                    ...state,
-                    users:action.payload
-                }
                 case LOG_DATA:
                     return{
                         ...state                       
@@ -28,4 +19,5 @@ const  LoginReducer  = (state= initialState,action)=>{
             return state;
     }
 }
-export default LoginReducer;
+
+export default  loginReducer;

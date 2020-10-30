@@ -52,10 +52,10 @@ class  LoginPage extends  Component{
              label ="Password" 
             type='text' required /></label>
             <br/><br/>
-            <Button  size="large" variant ="contained"  onClick = {()=>{this.onlogin()}}  color ="primary" href="/postLoginpage">Login</Button>
+            <Button  size="large" variant ="contained"  onClick = {()=>{this.onlogin()}}  color ="primary" href="/postLoginpage">Login<span role = "img" aria-label= "Down-Arrow">⬇️</span></Button>
             <br/><br/>
             <p>Sign-up to create account.....!!! </p>
-            <Button size = "large" variant = "contained" color = "primary" href="/"> Sign-up </Button>
+            <Button size = "large" variant = "contained" color = "primary" href="/"> Sign-up<span role = "img" aria-label= "Memo">📝</span> </Button>
             <br/><br/><br/>
             </Paper>
             </form>

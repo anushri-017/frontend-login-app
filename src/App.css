@@ -46,3 +46,7 @@
   .list{
     text-align: center;
   }
+  
+  .menuButton {
+    margin-left: auto;
+  }

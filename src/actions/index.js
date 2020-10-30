@@ -12,10 +12,10 @@ const get = (data) => {
         type: GET_DATA
         , payload: data
     }}
- export const setCurrentUser = decoded =>{
+ export const setCurrentUser = data =>{
     return{
         type:LOG_DATA,
-        payload:decoded
+        payload:data
     }
 }
 export function createData(data) {
@@ -38,8 +38,8 @@ export function getdata() {
                 .then (res =>{
                     const {token} = res.data;
                     localStorage.setItem("token" ,token);
-                    localStorage.getItem('token');
                     SetAuthToken(token);
+                    localStorage.getItem('token');
                     // const decoded = jwt_decode(token);
                     dispatch(setCurrentUser(data));
                 })             

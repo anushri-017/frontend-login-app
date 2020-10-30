@@ -71,9 +71,9 @@ class Register extends Component{
             <TextFeild className='input text-center form-group font-weight-italic' 
             label =" Confirm-Password"   variant="outlined" type='text'  value = {this.state.cnfpassword}  
             onChange = {this.handelcnfpassword} required/></label><br/><br/>
-            <Button onClick = {this.handlesubmit} size="large" variant ="contained" color ="primary">Register</Button><br/><br/>
+            <Button onClick = {this.handlesubmit} size="large" variant ="contained" color ="primary">Register<span role = "img" aria-label= "Memo">📝</span></Button><br/><br/>
             <p>Already,have an account!! <span role="img" aria-label="lock">🔒 </span> </p>
-            <Button size = "large" variant = "contained" color = "inherit" href = '/login'>Login</Button><br/><br/><br/>
+            <Button size = "large" variant = "contained" color = "primary" href = '/login'>Login<span role = "img" aria-label= "Down-Arrow">⬇️</span></Button><br/><br/><br/>
             </Paper>
             </form>
             </Container>
