@@ -19,8 +19,7 @@
   .icons{
     width: 5px;
     height: 6px;
-  }
-  
+}
   .line{
   height: 4rem;
    color:blue;
@@ -46,7 +45,6 @@
   .list{
     text-align: center;
   }
-  
   .menuButton {
     margin-left: auto;
   }

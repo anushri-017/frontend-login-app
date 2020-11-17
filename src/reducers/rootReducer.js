@@ -5,9 +5,9 @@ import veiwUserReducer from "./viewUsersReducers"
   
 
 const  rootReducers  = combineReducers({
-    loginReducer,
-    registerReducer,
-    veiwUserReducer
+     login:loginReducer,
+    register:registerReducer,
+    userProfile:veiwUserReducer
 })
 
 export default rootReducers;

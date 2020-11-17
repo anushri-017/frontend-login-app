@@ -1,9 +1,8 @@
-import {GET_DATA} from  '../contants/action-types';
+import {GET_DATA,VIEW_PROFILE} from  '../contants/action-types';
 
 const initialState ={
-    users:[]
+    users:[],loggedUser:{}
 }
-
 const  veiwUserReducer= (state= initialState,action)=>{
     switch(action.type){
         case GET_DATA:
@@ -11,8 +10,14 @@ const  veiwUserReducer= (state= initialState,action)=>{
                 ...state,
                 users:action.payload
             }
+            case VIEW_PROFILE:
+                return{
+                    ...state,
+                    loggedUser:action.payload
+                }
             default:
                 return state;
         }
     }
-    export default veiwUserReducer;
+
+export default veiwUserReducer;

@@ -1,21 +1,15 @@
-import React, { Component } from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import IconButton from '@material-ui/core/IconButton';
+import React, { Component} from 'react';
+import {AppBar,IconButton,Typography,Toolbar,Button,Grid ,Card,CardContent,Container} from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuIcon from '@material-ui/icons/Menu';
-import Typography from '@material-ui/core/Typography';
-import PersonSharpIcon from '@material-ui/icons/PersonSharp';
-import Toolbar from '@material-ui/core/Toolbar';
-import Avatar from '@material-ui/core/Avatar';
 import { connect } from 'react-redux';
 import { getdata } from '../actions/index';
-import pic3 from "./pics/pic3.png";
-import { Container,Grid ,Card, CardActionArea, CardMedia, CardContent, CardHeader } from '@material-ui/core';
+import Avatar from 'react-avatar';
 
 
 const mapStateToProps = state => {
     return {
-        users: state.users
+        users: state.userProfile.users
     }
 };
 
@@ -26,22 +20,26 @@ const mapDispatchToProps = dispatch => {
 }
 
 class Search extends Component {
-
+    constructor(){
+        super()
+        this.state = {
+            spacing:''
+        }
+    }
+    
     componentDidMount() {
         this.props.getdata()
     }
      
-    render() {     
+    render() {  
         return (
-         <Container className =  "App">
+            <Container className = "App">
             <AppBar position="static">
             <Toolbar>
               <IconButton edge="start" color="inherit" aria-label="menu">
                 <MenuIcon />
               </IconButton>
-              <Typography variant="h5" color = "inherit">
-             User-Details
-              </Typography>
+              <Typography variant="h5" color = "inherit"> User-Details</Typography>
               <IconButton
               edge=""
               aria-label="account of current user"
@@ -52,31 +50,37 @@ class Search extends Component {
               </IconButton>
             </Toolbar>  
             </AppBar> <br/><br/>
-            {this.props.users.map((user, index) => (           
-            <Grid container spacing ={5}>
-            <Grid item sm = {4}>
-            <Card>  
-            <CardHeader>
-            <Avatar variant = "square">
-            <PersonSharpIcon/>
-            </Avatar>
-            </CardHeader>
-            <CardActionArea>
-            <CardMedia component = "img" image ={pic3}
-             style = {{height:200}}/>
-            <CardContent>
-            <Typography variant  = "h6"> <label>Username:</label>{user.username}</Typography>   
-            <Typography variant  = "h6"><label>Email-Id:</label>{user.email}</Typography>   
-            <Typography variant  = "h6"> <label>Country:</label>{user.country}</Typography>  
-            <Typography variant  = "h6"> <label>Profile Created On:</label>{user.signupDate}</Typography>  
-            </CardContent>
-            </CardActionArea>
-            </Card>
+            <Grid container className="App" spacing={5}>
+            <Grid item xs={6} sm={12}>
+            <Grid container justify="center" spacing={2}>
+            {this.props.users.map((user,index)=>(
+                <Card>
+                <br/><br/>
+                <CardContent>  
+                <Avatar   className = 'mr-2' name={user.username}  round = {true} size="100"/>
+                <Typography  color="textPrimary"  variant = "h4" gutterBottom>
+                UserName: {user.username}</Typography>
+              <Typography variant="subtitle1" component="p">
+                Email:{user.email}
+              </Typography>
+              <Typography variant="subtitle1" component="p">
+              Country:{user.country}
+              </Typography>
+              <Typography variant="subtitle1" component="p">
+              Created On:{user.signupDate}
+              </Typography> 
+              <br/>    
+              </CardContent>
+              </Card>
+              ))}
             </Grid>
             </Grid>
-            ))}
-           </Container>       
+            </Grid>
+            <br/>
+            <Button href = "/postLoginPage" variant="contained" color = "primary">Back</Button>
+            </Container>
         )
     }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

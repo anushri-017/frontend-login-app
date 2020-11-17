@@ -1,46 +1,40 @@
-import { Button } from '@material-ui/core';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {veiwLoggedInUser} from "../actions/index";
+import  {Link} from 'react-router-dom';
+import Alert from '@material-ui/lab/Alert';
+import {Container,Button} from '@material-ui/core';
 
-const mapStateToProps = state =>{
-    return {
-        veiwProfile: state.viewProfile,
-       users:state.users
-    }
-}
- 
-const  mapDispatchToProps = dispatch =>{
-    return{
-        veiwLoggedInUser:(username) => dispatch(veiwLoggedInUser(username))
-    }
-}
 class PostLoginPage extends  Component{
-    constructor(){
-        super();
-        this.state={
-            username:' '
-        }
-    }
-    handel=()=>{this.setState({username:this.props.viewProfile.username})}
-
-veiwLoggedInUser = (username)   =>{
-    console.log(username);
-    this.props.veiwLoggedInUser(username)
-}
-
+  
 render(){
-        console.log(this.props.users)
         return(
             <>
-            <div className = "container">
+           <Container className = "App">
             <h1>Welcome</h1>
-            <p className =  'bg-success text-white'><i>You are  Logged in successfully.........!! </i></p><br/>
-            <p>Click here to View User Details </p>
-            <Button onClick = {this.veiwLoggedInUser} size="large"  variant = "contained"color ="primary" href = '/viewuserdetails'>View-Details</Button><br/><br/>      
-            </div>
+            <Alert variant="outlined" severity="success">
+            <i>You are  Logged in successfully.........!! </i>
+          </Alert>
+          <br/>
+            <br/><br/><br/>
+            <p>Click here to view User Details </p>
+                <Button size="large" color = 'secondary'>
+                <Link to ='/viewUserDetails'>
+              Click-here        
+                </Link></Button><br/><br/>      
+                <p>Click here to view  all the User-Details </p>
+                <Button size="large"  color = 'primary'>
+                <Link to ='/search'>
+                Click-here
+                </Link></Button><br/><br/>    
+                </Container>
             </>
         )
     }
 }
- export  default connect(mapStateToProps, mapDispatchToProps) (PostLoginPage);
+
+const mapStateToProps = state =>{
+  return {
+     loggedUser:state.userProfile.loggedUser   
+  }
+}
+ export  default connect(mapStateToProps) (PostLoginPage);

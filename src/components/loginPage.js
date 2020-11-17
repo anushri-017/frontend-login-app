@@ -1,11 +1,12 @@
 import  React, { Component } from 'react';
 import  {connect} from 'react-redux';
-import {loggedin} from "../actions/index";
+import {loggedin,veiwLoggedInUser} from "../actions/index";
 import Container  from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import PersonSharpIcon from '@material-ui/icons/PersonSharp';
 import VisibilitySharpIcon from '@material-ui/icons/VisibilitySharp';
 import{Button,TextField} from '@material-ui/core';
+import {Link} from 'react-router-dom';
 
 class  LoginPage extends  Component{
     constructor(){
@@ -26,6 +27,7 @@ class  LoginPage extends  Component{
     event.preventDefault();
     console.log(this.state)
     this.props.loggedin(this.state);
+    this.props.veiwLoggedInUser(this.state.username)
     }
 
     render(){ 
@@ -52,10 +54,12 @@ class  LoginPage extends  Component{
              label ="Password" 
             type='text' required /></label>
             <br/><br/>
-            <Button  size="large" variant ="contained"  onClick = {()=>{this.onlogin()}}  color ="primary" href="/postLoginpage">Login<span role = "img" aria-label= "Down-Arrow">⬇️</span></Button>
+            <Button  size="large"  variant = "contained"  onClick = {()=>{this.onlogin()}}>
+            <Link to = "/postLoginPage">
+            Login</Link></Button>
             <br/><br/>
             <p>Sign-up to create account.....!!! </p>
-            <Button size = "large" variant = "contained" color = "primary" href="/"> Sign-up<span role = "img" aria-label= "Memo">📝</span> </Button>
+            <Button size = "large" variant = "contained" color = "primary" href="/register"> Sign-up<span role = "img" aria-label= "Memo">📝</span> </Button>
             <br/><br/><br/>
             </Paper>
             </form>
@@ -68,13 +72,9 @@ class  LoginPage extends  Component{
 
 const mapDispatchToProps = (dispatch) =>{
     return{
-        loggedin:(data) => dispatch(loggedin(data))
+        loggedin:(data) => dispatch(loggedin(data)),
+        veiwLoggedInUser:(username) =>dispatch(veiwLoggedInUser(username))
     }
 }
 
-const mapStateToProps = (state) =>{
-    return{
-        veiwProfile:state.veiwProfile
-    }
-}
-export default connect(mapStateToProps,mapDispatchToProps) (LoginPage);
+export default connect(null,mapDispatchToProps) (LoginPage);

@@ -1,5 +1,4 @@
-import { Container,Paper,Button} from '@material-ui/core';
-import TextFeild from '@material-ui/core/TextField';
+import { Container,Paper,Button,TextField} from '@material-ui/core';
 import PersonSharpIcon from '@material-ui/icons/PersonSharp';
 import PublicSharpIcon from '@material-ui/icons/PublicSharp';
 import VisibilitySharpIcon from '@material-ui/icons/VisibilitySharp';
@@ -12,7 +11,7 @@ class Register extends Component{
     constructor(props) {
         super(props)
         this.state = {
-            username:'',email:"", password:"",cnfpassword:'',country:''
+            username:'',email:"", password:"",country:''
         }
     }
     handelname = event =>{
@@ -20,9 +19,6 @@ class Register extends Component{
     }
     handelpassword= event =>{
         this.setState({password:event.target.value})
-    }
-    handelcnfpassword = event =>{
-        this.setState({cnfpassword:event.target.value})
     }
     handelcountry = event =>{
         this.setState({country:event.target.value})
@@ -48,29 +44,24 @@ class Register extends Component{
             <h1 className ='text-white  bg-info'>Register Now</h1><br/>
             <label className="text-info font-weight-bold label ">
             <PersonSharpIcon  fontSize = "large"/>
-            <TextFeild className='input text-center form-group  font-weight-italic' 
+            <TextField className='input text-center form-group  font-weight-italic' 
             label ="UserName"   variant="outlined"  type='text'  value = {this.state.username}  
             onChange = {this.handelname} required /></label><br/>
             <label className="text-info font-weight-bold label"> 
             <MailSharpIcon fontSize = "large"/>
-             <TextFeild className='input text-center form-group  font-weight-italic' 
+             <TextField className='input text-center form-group  font-weight-italic' 
             label ="Enter Your  email"   variant="outlined" type='text'  value = {this.state.email}  
             onChange = {this.handelmail} required/></label><br/>
             <label className="text-info font-weight-bold label">
             <PublicSharpIcon fontSize = "large"/>
-             <TextFeild className='input text-center form-group font-weight-italic' 
+             <TextField className='input text-center form-group font-weight-italic' 
             label="Enter Your Country"  variant="outlined"  type='text'  value = {this.state.country} 
              onChange = {this.handelcountry} required/></label><br/>
             <label className="text-info font-weight-bold label">
             <VisibilitySharpIcon  fontSize = "large"/>
-            <TextFeild className='input text-center form-group font-weight-italic' 
+            <TextField className='input text-center form-group font-weight-italic' 
             label="Password"  variant="outlined"  type='text'  value = {this.state.password}  
-            onChange = {this.handelpassword}  required/></label><br/>
-            <label className="text-info font-weight-bold label">
-            <VisibilitySharpIcon  fontSize = "large"/> 
-            <TextFeild className='input text-center form-group font-weight-italic' 
-            label =" Confirm-Password"   variant="outlined" type='text'  value = {this.state.cnfpassword}  
-            onChange = {this.handelcnfpassword} required/></label><br/><br/>
+            onChange = {this.handelpassword}  required/></label><br/><br/>
             <Button onClick = {this.handlesubmit} size="large" variant ="contained" color ="primary">Register<span role = "img" aria-label= "Memo">📝</span></Button><br/><br/>
             <p>Already,have an account!! <span role="img" aria-label="lock">🔒 </span> </p>
             <Button size = "large" variant = "contained" color = "primary" href = '/login'>Login<span role = "img" aria-label= "Down-Arrow">⬇️</span></Button><br/><br/><br/>
@@ -91,7 +82,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     return {
-        users: state.users
+        users:state.users
     }
 }
 

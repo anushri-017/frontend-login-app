@@ -1,7 +1,7 @@
 import  axios from 'axios';
 
-const SetAuthToken  =  token =>{
-    if (token){
-        axios.defaults.headers={ 'x-access-token': localStorage.getItem('token') }
+const SetAuthToken  =  jwtoken =>{
+    if (jwtoken){
+        axios.defaults.headers={ 'x-access-token': localStorage.getItem('jwtoken') }
     }} 
 export default  SetAuthToken;

@@ -8,7 +8,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import logger from 'redux-logger';
 import {createStore,applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
-import  rootReducers from "./reducers/rootReducer";
+import rootReducers from "./reducers/rootReducer";
 
 const store = createStore(rootReducers,
   composeWithDevTools(applyMiddleware(thunk,logger)));
